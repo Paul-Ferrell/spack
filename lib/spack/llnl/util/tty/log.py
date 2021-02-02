@@ -770,7 +770,7 @@ def _writer_daemon(stdin_multiprocess_fd, read_multiprocess_fd, write_fd, echo,
                     # Sometimes build processes produce invalid unicode that 
                     # the decoder can't handle. Ignore it and move on.
                     except UnicodeDecodeError:
-                        continue
+                        line = '<line lost due to invalid unicode>\n'
 
                     if not line:
                         break
