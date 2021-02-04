@@ -76,6 +76,7 @@ def test_log_python_output_with_bad_unicode(capfd, tmpdir):
         # nothing on stdout or stderr
         assert capfd.readouterr()[0] == ''
 
+
 def test_log_python_output_and_echo_output(capfd, tmpdir):
     with tmpdir.as_cwd():
         # echo two lines
