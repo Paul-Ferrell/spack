@@ -62,6 +62,8 @@ def test_log_python_output_without_echo(capfd, tmpdir):
         assert capfd.readouterr()[0] == ''
 
 
+@pytest.mark.skipif(sys.version_info.major == 2,
+                    reason="Cannot force bug in python2.")
 def test_log_python_output_with_bad_unicode(capfd, tmpdir):
     with tmpdir.as_cwd():
         with log_output('foo.txt'):
