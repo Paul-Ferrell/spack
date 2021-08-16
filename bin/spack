@@ -74,4 +74,11 @@ import spack.main  # noqa
 
 # Once we've set up the system path, run the spack main method
 if __name__ == "__main__":
-    sys.exit(spack.main.main())
+    try:
+        sys.exit(spack.main.main())
+    except KeyboardInterrupt:
+        sys.exit(1)
+    except Exception:
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)
